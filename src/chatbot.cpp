@@ -11,6 +11,7 @@
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot()
 {
+    std::cout << "ChatBot Constructor empty " << std::endl;
     // invalidate data handles
     _image = nullptr;
     _chatLogic = nullptr;
@@ -28,6 +29,7 @@ ChatBot::ChatBot(std::string filename)
 
     // load image into heap memory
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
+    std::cout << "StartPointer:" << _image << "\n";
 }
 
 ChatBot::~ChatBot()
@@ -35,6 +37,7 @@ ChatBot::~ChatBot()
     std::cout << "ChatBot Destructor" << std::endl;
 
     // deallocate heap memory
+    std::cout << "EndPointer:" << _image << "\n";
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
         delete _image;

@@ -1,0 +1,6 @@
+#Visual Studio Code
+launch.json
+settings.json
+
+#Build folder
+build/
