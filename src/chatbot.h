@@ -26,7 +26,7 @@ public:
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
 
-    //MD - 01-MAR-2021 - Rule of five
+    // Marcos Darino - 01-MAR-2021 - Rule of five
     // Rule 1 Destructor
     ~ChatBot();
     // Rule 2 Assignment operator

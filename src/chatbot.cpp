@@ -32,7 +32,7 @@ ChatBot::ChatBot(std::string filename)
 }
 //// STUDENT CODE
 ////
-//MD - 01-MAR-2021 - Rule of five
+// Marcos Darino - 01-MAR-2021 - Rule of five
 // Rule 1 Destructor
 ChatBot::~ChatBot()
 {
