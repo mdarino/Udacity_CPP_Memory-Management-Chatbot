@@ -27,6 +27,7 @@ public:
     ChatBot(std::string filename); // constructor WITH memory allocation
 
     // Marcos Darino - 01-MAR-2021 - Rule of five
+
     // Rule 1 Destructor
     ~ChatBot();
     // Rule 2 Assignment operator
@@ -37,11 +38,8 @@ public:
     ChatBot(ChatBot &&source);
     // Rule 5 Move assignment operator
     ChatBot &operator=(ChatBot &&source);
-    //// STUDENT CODE
-    ////
-
-    ////
-    //// EOF STUDENT CODE
+    
+    //// EOF MD changes
 
     // getters / setters
     void SetCurrentNode(GraphNode *node);

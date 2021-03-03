@@ -29,8 +29,7 @@ ChatBot::ChatBot(std::string filename)
     // load image into heap memory
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
 }
-//// STUDENT CODE
-////
+
 // Marcos Darino - 01-MAR-2021 - Rule of five
 // Rule 1 Destructor
 ChatBot::~ChatBot()
@@ -99,11 +98,7 @@ ChatBot& ChatBot::operator=(ChatBot &&source){
     source._chatLogic = nullptr;
     return *this;
 }
-
-
-
-////
-//// EOF STUDENT CODE
+//// EOF MD changes
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {

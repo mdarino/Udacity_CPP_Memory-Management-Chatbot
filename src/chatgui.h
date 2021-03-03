@@ -13,11 +13,9 @@ private:
     // control elements
     wxBoxSizer *_dialogSizer;
     wxBitmap _image;
-
-    //// STUDENT CODE
     //// Marcos Darino - 28-FEB-2021
     std::unique_ptr<ChatLogic> _chatLogic;
-    //// EOF STUDENT CODE
+    //// EOF MD changes
 
 public:
     // constructor / destructor

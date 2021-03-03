@@ -12,44 +12,8 @@
 #include "chatlogic.h"
 
 
-ChatLogic::ChatLogic()
-{
-    //// STUDENT CODE
-    ////
-
-    // Marcos Darino - 01-MAR-2021 - Task 5 - Move to LoadAnswerGraphFromFile
-
-    // create instance of chatbot
-    //_chatBot = new ChatBot("../images/chatbot.png");
-    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    //_chatBot->SetChatLogicHandle(this);
-
-    ////
-    //// EOF STUDENT CODE
-}
-
-ChatLogic::~ChatLogic()
-{
-    //// STUDENT CODE
-    ////
-
-    // delete chatbot instance 
-
-    // Marcos Darino - 01-MAR-2021 - Task 5 - Delete happen in ~GraphNode
-    //delete _chatBot;
-
-    // delete all nodes
-    // delete all edges
-      /*
-        unique_ptr objects automatically delete the object they manage (using a deleter) 
-        as soon as they themselves are destroyed, or as soon as their value changes 
-        either by an assignment operation or by an explicit call to unique_ptr::reset.
-        See: http://www.cplusplus.com/reference/memory/unique_ptr/
-      */
-
-    ////
-    //// EOF STUDENT CODE
-}
+ChatLogic::ChatLogic() {/*empty*/}
+ChatLogic::~ChatLogic() {/*empty*/}
 
 template <typename T>
 void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T &element)
@@ -123,13 +87,9 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                     // node-based processing
                     if (type->second == "NODE")
                     {
-                        //// STUDENT CODE
                         // Marcos Darino - 01-MAR-2021 - Task 3
-                        ////
-
                         // check if node with this ID exists already
                         auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](std::unique_ptr<GraphNode> &node) { return node->GetID() == id; });
-
                         // create new element if ID does not yet exist
                         if (newNode == _nodes.end())
                         {
@@ -140,15 +100,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             // add all answers to current node
                             AddAllTokensToElement("ANSWER", tokens, **newNode);
                         }
-
-                        ////
-                        //// EOF STUDENT CODE
                     }
 
                     // edge-based processing
                     if (type->second == "EDGE")
                     {
-                        //// STUDENT CODE
                         // Marcos Darino - 01-MAR-2021 - Task 3
                         ////
 
@@ -176,9 +132,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             (*childNode)->AddEdgeToParentNode(edge.get());
                             (*parentNode)->AddEdgeToChildNode(std::move(edge));
                         }
-
-                        ////
-                        //// EOF STUDENT CODE
                     }
                 }
                 else
@@ -196,11 +149,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
         std::cout << "File could not be opened!" << std::endl;
         return;
     }
-
-    //// STUDENT CODE
     // Marcos Darino - 01-MAR-2021 - Task 3
-    ////
-
     // identify root node
     GraphNode *rootNode = nullptr;
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
@@ -208,10 +157,9 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
         // search for nodes which have no incoming edges
         if ((*it)->GetNumberOfParents() == 0)
         {
-
             if (rootNode == nullptr)
             {
-                rootNode = (*it).get(); // assign current node to root
+                rootNode = it->get(); // assign current node to root
             }
             else
             {
@@ -223,7 +171,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     
     // Marcos Darino - 01-MAR-2021 - Task 5
-
     // create instance of chatbot
     ChatBot _chatBot("../images/chatbot.png");
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
@@ -232,10 +179,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     // add chatbot to graph root node
     _chatBot.SetRootNode(rootNode);
     rootNode->MoveChatbotHere(std::move(_chatBot));
-
-
-    ////
-    //// EOF STUDENT CODE
 }
 
 void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
