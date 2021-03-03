@@ -31,7 +31,7 @@ The ChatBot code creates a dialogue where users can ask questions about some asp
 3. Compile: `cmake .. && make`
 4. Run it: `./membot`.
 
-## TASKs
+## TASKS
 Task 1 : Exclusive Ownership 1
 In file chatgui.h / chatgui.cpp, make _chatLogic an exclusive resource to class ChatbotPanelDialog using an appropriate smart pointer. Where required, make changes to the code such that data structures and function parameters reflect the new structure.
 
@@ -48,7 +48,11 @@ Task 5 : Moving the ChatBot
 In file chatlogic.cpp, create a local ChatBot instance on the stack at the bottom of function LoadAnswerGraphFromFile. Then, use move semantics to pass the ChatBot instance into the root node. Make sure that ChatLogic has no ownership relation to the ChatBot instance and thus is no longer responsible for memory allocation and deallocation. Note that the member _chatBot remains so it can be used as a communication handle between GUI and ChatBot instance. Make all required changes in files chatlogic.h / chatlogic.cpp and graphnode.h / graphnode.cpp. When the program is executed, messages on which part of the Rule of Five components of ChatBot is called should be printed to the console. When sending a query to the ChatBot, the output should look like the following:
 
 ChatBot Constructor
+
 ChatBot Move Constructor
+
 ChatBot Move Assignment Operator
+
 ChatBot Destructor
+
 ChatBot Destructor 
