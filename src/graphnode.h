@@ -21,7 +21,8 @@ private:
 
     // data handles (not owned)
     std::vector<GraphEdge *> _parentEdges; // edges to preceding nodes 
-    ChatBot *_chatBot;
+    //TASK5 Marcos Darino 1-MAR-2021
+    ChatBot _chatBot;
 
     ////
     //// EOF STUDENT CODE
@@ -50,8 +51,8 @@ public:
 
     //// STUDENT CODE
     ////
-
-    void MoveChatbotHere(ChatBot *chatbot);
+    //TASK5 Marcos Darino 1-MAR-2021
+    void MoveChatbotHere(ChatBot chatbot);
 
     ////
     //// EOF STUDENT CODE

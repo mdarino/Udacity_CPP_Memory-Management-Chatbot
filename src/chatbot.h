@@ -30,7 +30,7 @@ public:
     // Rule 1 Destructor
     ~ChatBot();
     // Rule 2 Assignment operator
-    ChatBot &operator=(ChatBot const& source);       // copy assignment constructor
+    ChatBot &operator=(const ChatBot &source);       // copy assignment constructor
     // Rule 3 Copy constructor
     ChatBot(const ChatBot &source);
     // Rule 4 Move constructor
